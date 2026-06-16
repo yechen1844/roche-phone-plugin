@@ -1,0 +1,17 @@
+{
+  "id": "roche-phone",
+  "name": "小手机",
+  "version": "1.0.0",
+  "description": "异世界通信终端 — 实时捕捉线下<msg>消息，映射到线上会话，悬浮球快捷聊天",
+  "author": "user",
+  "entry": "https://raw.githubusercontent.com/yechen1844/roche-phone-plugin/main/phone-plugin.js",
+  "hash": "",
+  "permissions": [
+    "persona:read",
+    "character:read",
+    "memory:read",
+    "conversation:read",
+    "storage",
+    "ui"
+  ]
+}
