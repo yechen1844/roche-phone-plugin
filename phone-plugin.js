@@ -1368,8 +1368,8 @@
       // 顶栏：拖拽区 + 角色信息 + 缩放/设置/关闭
       + '<div class="roche-phone-header">'
       + '  <div class="roche-phone-header-drag" id="roche-phone-drag-area"></div>'
-      + '  <div class="roche-phone-header-avatar" style="' + charAvatar + '"></div>'
-      + '  <div class="roche-phone-header-info" id="roche-phone-char-info">'
+      + '  <div class="roche-phone-header-avatar" id="roche-phone-avatar" style="' + charAvatar + '" title="双击切换角色"></div>'
+      + '  <div class="roche-phone-header-info">'
       + '    <div class="roche-phone-header-name">' + charName + '</div>'
       + '    <div class="roche-phone-header-status">ONLINE</div>'
       + '  </div>'
@@ -1406,10 +1406,14 @@
       settingsBtn.addEventListener('click', function () { toggleSettings(); });
     }
 
-    // 角色信息 - 点击显示选择器
-    var charInfo = panel.querySelector('#roche-phone-char-info');
-    if (charInfo) {
-      charInfo.addEventListener('click', function () { toggleCharPicker(); });
+    // 头像 - 双击显示角色选择器
+    var avatar = panel.querySelector('#roche-phone-avatar');
+    if (avatar) {
+      avatar.addEventListener('dblclick', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleCharPicker();
+      });
     }
 
     // 拖拽区 - 绑定到专门的拖拽区域
