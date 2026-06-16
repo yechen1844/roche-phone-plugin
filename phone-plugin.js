@@ -900,10 +900,15 @@
         + '</div>';
     }
 
+    // 判断用户是否在底部（允许30px误差）
+    var isAtBottom = container.scrollHeight - container.scrollTop - container.clientHeight < 30;
+
     container.innerHTML = html;
 
-    // 滚动到底部
-    container.scrollTop = container.scrollHeight;
+    // 只有用户已经在底部时才自动滚到底部
+    if (isAtBottom) {
+      container.scrollTop = container.scrollHeight;
+    }
   }
 
   // 全局回调：加载更多
